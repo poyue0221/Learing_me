@@ -1,0 +1,29 @@
+1,分布式版本控制软件(工作区，暂存区，版本库，远程仓库)
+
+git init
+git add 文件名
+git add .  所有文件
+git commit -m "init"
+git push origin master
+
+git log
+git reflog 回滚查看
+git reset --hard xxx 回滚
+git checkout -- 文件名  放弃之前的修改 （从红色区回来，工作区中）
+生成一个新版本 只保存修改的部分，未修改的用指针指向为修改的部分
+
+git branch 查看分支
+git branch 分支名  创建一个分支
+git checkout 分支名  切换到某个分支名
+git merge 分支名  合并某分支  首先要切换到主分支上master
+git branch -d 分支名 删除某个分支
+master分支生成了一个A分支和B分支  然后A分支合并到master上，再把B分支合并到mashter上过程中可能会报错（如果在同一
+行进行了修改则会报错，需要手动修改你需要选择的部分，否则不会报错）
+
+
+git remote add origin http://xxxxx     给这个地址起个别名 就叫origin   这个origin就代表这个地址了
+git push -u  origin master     从本地把master推送到origin地址上  也可推送其他分支  -u默认的意思，下次默认这个地址
+
+git clone xx   克隆代码 所有分支都含有，可能查看不显示，但可以随意切换
+git pull origin dev 把代码从origin拉取下来（本地代码可能含有一部分dev分支代码，所以不用直接重新克隆下来）
+git pull origin dev = git fetch origin dev + git merge origin

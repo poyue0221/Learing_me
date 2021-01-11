@@ -1,0 +1,70 @@
+https://developer.nvidia.com/cuda-11.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=deblocal
+
+darklabel标注软件 链接：https://pan.baidu.com/s/16t6OZimfNb9oNvdgvOZUoQ 提取码：xq1i
+
+https://blog.csdn.net/qq_37643960/article/details/88953336
+
+https://www.jianshu.com/p/7c0b37029592
+
+pytorch快速安装 https://blog.csdn.net/zzq060143/article/details/88042075
+
+pytorch指定层训练 https://blog.csdn.net/tuntunmmd/article/details/89001465
+
+快速下载 pip --default-timeout=1000000 install -U -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade tensorflow-gpu==2.0.0 
+	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+算力资料 https://blog.csdn.net/mzpmzk/article/details/82976871?utm_medium=distribute.pc_relevant.none-task-blog-title-11&spm=1001.2101.3001.4242
+         https://www.cnblogs.com/xuanyuyt/p/12653041.html
+
+目标跟踪资料 https://www.52cv.net/?p=4356
+
+预训练权重文件 https://www.jb51.net/article/168000.htm
+预训练权重文件对应层修改方式 https://blog.csdn.net/jackzhang11/article/details/108047586
+			https://blog.csdn.net/qq_36783816/article/details/102898338
+
+https://blog.csdn.net/qq_22210253/article/details/85229988  Pytorch详解NLLLoss和CrossEntropyLoss
+
+
+caffe安装 官方地址http://caffe.berkeleyvision.org/install_apt.html
+	命令：software-properties-gtk 打开软件和更新窗口
+	sudo apt-get update
+	https://blog.csdn.net/weixin_39916966/article/details/93221564?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control#commentBox
+
+
+打开Anaconda 图形界面 1 source ~/anaconda3/bin/activate root
+			2 anaconda-navigator
+
+
+
+nautilus 打开文件图形界面
+export PATH="/usr/local/cuda/bin:/home/dwg/anaconda3/bin:$PATH"
+echo $PATH
+tar -xf
+
+chmod +x filename 给文件附加权限
+
+conda create -n env_name 增加虚拟环境
+
+du -sh *  / du -sh 查看子目录大小/当前目录大小
+
+conda env export > siamcar.yaml
+pip freeze > siamcar.txt 导出环境
+
+watch -n 0.1 -d nvidia-smi 显卡每秒显示
+
+
+git commit -m "init" -a
+git push origin master
+vim .git/config
+git add .gitignore  
+
+conda config --set auto_activate_base false/true 是否激活bash环境
+
+
+
+
+
+
+
+
+
