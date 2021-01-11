@@ -7,7 +7,7 @@ git commit -m "init"
 git push origin master
 
 git log
-git reflog 回滚查看
+git reflog 回滚查看（回滚到之前的版本后，又想回滚原来位置，用git log查看不到可用git reflog）
 git reset --hard xxx 回滚
 git checkout -- 文件名  放弃之前的修改 （从红色区回来，工作区中）
 生成一个新版本 只保存修改的部分，未修改的用指针指向为修改的部分
@@ -23,7 +23,90 @@ master分支生成了一个A分支和B分支  然后A分支合并到master上，
 
 git remote add origin http://xxxxx     给这个地址起个别名 就叫origin   这个origin就代表这个地址了
 git push -u  origin master     从本地把master推送到origin地址上  也可推送其他分支  -u默认的意思，下次默认这个地址
+删除.git后 强行整合  git push -u origin +master
+
 
 git clone xx   克隆代码 所有分支都含有，可能查看不显示，但可以随意切换
 git pull origin dev 把代码从origin拉取下来（本地代码可能含有一部分dev分支代码，所以不用直接重新克隆下来）
 git pull origin dev = git fetch origin dev + git merge origin
+
+
+rebase 版本合并 版本太多把没有提交的冗余版本合并为一个版本(如图2)
+git rebase -i 版本号  或者 git rebase HEAD~3 从当前开始找之前三个版本合并（V4V3V2，当前为V4）
+之后把要合并的版本V3 V4 的pick开头改为s就可   最后提交信息自行修改
+注意：不要把提交push上去的版本合并，这样会使的历史提交记录混乱
+
+使两个分支合并同时提交记录也合并而不产生分叉（直接使用merge，提交记录有分叉效果）
+git checkout dev 先切换到dev分支
+git rebase master 类似把dev分支变为树干
+git checkout master 再切换回master分支
+git merge dev 合并
+git log --graph --pretty=format:"%h %s"(简洁)或者 git log --graph  查看提交记录图
+
+A使用commit，B使用commit并push，然后A pull下来，提交记录并不会合并有分叉，解决如下
+A：git fetch origin dev
+   git rebase origin /dev
+
+beyond compare 快速解决冲突（软件）
+安装
+在git中配置
+ git config --local merge.tool bc3  起名  --local只对当前目录有效
+ git config --local mergetool.path '安装的路径名'  添加安装路径
+ git config --local mergetool.keepBackup false   不生成备份文件
+应用
+    git mergetool 打开软件
+
+
+版本管理
+给版本打标签
+    git tag -a v1 -m "第一版"    命名为V1
+    git push origin --tags    把版本标签推送到远程
+
+给开源软件贡献代码
+1,fork源代码
+  将别人源代码拷贝到我自己的远程仓库
+2,在自己仓库进行修改代码
+3,给源代码的作者提交 修复bug的申请（pull request）
+
+
+配置
+项目配置文件：项目/.git/config
+    git config --local user.name "Allen"
+    git config --local user.email "dwg@xx.com"
+全局配置文件：~/.gitconfig
+    git config --global user.name "Allen"
+    git config --global user.email "dwg@xx.com"
+系统配置文件：/etc/.gitconfig
+    git config --system user.name "Allen"
+    git config --system user.email "dwg@xx.com"
+git remote add origin 地址 ，默认添加在本地配置文件中（--local）
+
+免密登录
+URL中体现
+    原来的地址：http：//github.com/xx.git
+    修改后的地址：https://用户名：密码@github.com/xx.git  #直接在config设置
+    或
+    git remote add origin https://xx.git
+    git push origin master
+SSH实现
+    1,生成公钥和私钥（默认放在 ~/.ssh目录下，id_rsa.pub公钥、id_rsa私钥）
+        ssh-keygen
+    2,拷贝公钥的内容，并设置到github中。
+    3，在git本地中配置ssh地址
+        git remote add  origin git@github.com:xx/xx.git
+    4,以后使用
+        git push origin master
+git自动管理凭证
+
+
+git忽略文件
+让git不再管理当前目录下的某些文件
+   *.h
+   !a.h
+   files/
+   *.py[c|b|a]
+
+
+
+
+
