@@ -12,6 +12,7 @@ pytorch指定层训练 https://blog.csdn.net/tuntunmmd/article/details/89001465
 
 快速下载 pip --default-timeout=1000000 install -U -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade tensorflow-gpu==2.0.0 
 	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple
+	pip install -i http://mirrors.aliyun.com/pypi/simpl
 
 算力资料 https://blog.csdn.net/mzpmzk/article/details/82976871?utm_medium=distribute.pc_relevant.none-task-blog-title-11&spm=1001.2101.3001.4242
          https://www.cnblogs.com/xuanyuyt/p/12653041.html
@@ -35,6 +36,8 @@ caffe安装 官方地址http://caffe.berkeleyvision.org/install_apt.html
 			2 anaconda-navigator
 
 
+cat /usr/local/cuda/version.txt 查看cuda版本
+cat /proc/driver/nvidia/version或输入nvidia-smi  查看驱动版本
 
 nautilus 打开文件图形界面
 export PATH="/usr/local/cuda/bin:/home/dwg/anaconda3/bin:$PATH"
@@ -61,10 +64,12 @@ git add .gitignore
 conda config --set auto_activate_base false/true 是否激活bash环境
 
 
+损失图形界面 tensorboard --logdir=data
 
+netstat -tunlp  打开进程
 
-
-
+Linux下libusb开发遇到如下问题
+	sudo chmod -R 777 /dev/bus/usb/
 
 
 
